@@ -1,8 +1,9 @@
+import { NextPage } from "next";
 import Image from "next/image";
 import { Layout } from "../../components/Layout";
 import styles from './Coin.module.css';
 
-const Coin = ({ coin }) => {
+const Coin = ({ coin }): NextPage => {
   return (
     <Layout>
       <div className={styles.coin_page}>

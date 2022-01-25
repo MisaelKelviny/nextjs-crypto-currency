@@ -11,13 +11,12 @@ const Home: NextPage = ({ filteredCoins }) => {
 
   const handleChanges = e => {
     e.preventDefault()
-
     setSearch(e.target.value.toLowerCase())
   }
 
   return (
     <Layout>
-      <div className='coin_app'>
+      <div className="coin_app">
         <SearchBar type="text" placeholder="Search" onChange={handleChanges} />
         <CoinList filteredCoin={allCoins} />
       </div>
