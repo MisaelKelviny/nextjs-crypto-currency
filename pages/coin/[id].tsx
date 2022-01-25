@@ -3,7 +3,11 @@ import Image from "next/image";
 import { Layout } from "../../components/Layout";
 import styles from './Coin.module.css';
 
-const Coin = ({ coin }): NextPage => {
+interface CoinProps {
+  coin?: any
+}
+
+const Coin: NextPage<CoinProps> = ({ coin }) => {
   return (
     <Layout>
       <div className={styles.coin_page}>
@@ -28,7 +32,7 @@ const Coin = ({ coin }): NextPage => {
 
 export default Coin;
 
-export async function getServerSideProps(context) {
+export async function getServerSideProps(context: any) {
   const { id } = context.query;
   const res = await fetch(`https://api.coingecko.com/api/v3/coins/${id}`);
   const data = await res.json();

@@ -4,12 +4,16 @@ import CoinList from '../components/CoinList'
 import { Layout } from '../components/Layout'
 import SearchBar from '../components/SearchBar'
 
-const Home: NextPage = ({ filteredCoins }) => {
+interface HomeProps {
+  filteredCoins?: any
+}
+
+const Home: NextPage<HomeProps> = ({ filteredCoins }) => {
   const [search, setSearch] = useState('')
 
-  const allCoins = filteredCoins.filter(coin => coin.name.toLowerCase().includes(search.toLowerCase()))
+  const allCoins = filteredCoins.filter((coin: any) => coin.name.toLowerCase().includes(search.toLowerCase()))
 
-  const handleChanges = e => {
+  const handleChanges = (e: any) => {
     e.preventDefault()
     setSearch(e.target.value.toLowerCase())
   }
@@ -21,7 +25,6 @@ const Home: NextPage = ({ filteredCoins }) => {
         <CoinList filteredCoin={allCoins} />
       </div>
     </Layout>
-
   )
 }
 

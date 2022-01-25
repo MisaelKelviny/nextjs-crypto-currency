@@ -9,7 +9,7 @@ interface CoinProp {
   marketcap: number,
   volume: string,
   image: string,
-  priceChange: string,
+  priceChange: any,
   id: any
 }
 
@@ -27,9 +27,9 @@ const Coins = (props: CoinProp) => {
             <p className={styles.coin_price}>${props.price}</p>
             <p className={styles.coin_volume}>${props.volume.toLocaleString()}</p>
             {props.priceChange < 0 ? (
-              <p className={styles.coin_percent, styles.red}>{props.priceChange.toFixed(2)}%</p>
+              <p className={styles.coin_percent + styles.red}>{props.priceChange.toFixed(2)}%</p>
             ) : (
-              <p className={styles.coin_percent, styles.green}>{props.priceChange.toFixed(2)}%</p>
+              <p className={styles.coin_percent + styles.green}>{props.priceChange.toFixed(2)}%</p>
             )}
             <p className={styles.marketcap}>Mkt cap: ${props.marketcap.toLocaleString()}</p>
           </div>

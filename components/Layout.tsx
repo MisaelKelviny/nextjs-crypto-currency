@@ -14,7 +14,7 @@ export const Layout = (props: LayoutProps) => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <header className="header">
-        <Link href="/" passhref>
+        <Link href="/" passHref>
           <a>
             <Logo />
           </a>

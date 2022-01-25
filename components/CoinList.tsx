@@ -1,9 +1,13 @@
 import Coins from "./Coins"
 
-export default function CoinList({ filteredCoin }) {
+interface CoinListProps {
+  filteredCoin?: any
+}
+
+export default function CoinList(props: CoinListProps) {
   return (
     <>
-      {filteredCoin?.map((coin) => {
+      {props.filteredCoin?.map((coin: any) => {
         return (
           <Coins
             key={coin.id}
