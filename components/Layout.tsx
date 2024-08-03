@@ -1,9 +1,9 @@
-import Head from "next/head"
-import Link from "next/link"
-import { Logo } from "./Icons/logo"
+import Head from "next/head";
+import Link from "next/link";
+import { Logo } from "./Icons/logo";
 
 interface LayoutProps {
-  children?: any
+  children?: any;
 }
 
 export const Layout = (props: LayoutProps) => {
@@ -15,14 +15,10 @@ export const Layout = (props: LayoutProps) => {
       </Head>
       <header className="header">
         <Link href="/" passHref>
-          <a>
-            <Logo />
-          </a>
+          <Logo />
         </Link>
       </header>
-      <main>
-        {props.children}
-      </main>
+      <main>{props.children}</main>
     </div>
-  )
-}
+  );
+};

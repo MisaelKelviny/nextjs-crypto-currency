@@ -1,10 +1,22 @@
 import { NextPage } from "next";
 import Image from "next/image";
 import { Layout } from "../../components/Layout";
-import styles from './Coin.module.css';
+import styles from "./Coin.module.css";
 
 interface CoinProps {
-  coin?: any
+  coin?: any;
+}
+
+export async function getServerSideProps(context: any) {
+  const { id } = context.query;
+  const res = await fetch(`https://api.coingecko.com/api/v3/coins/${id}`);
+  const data = await res.json();
+
+  return {
+    props: {
+      coin: data,
+    },
+  };
 }
 
 const Coin: NextPage<CoinProps> = ({ coin }) => {
@@ -31,15 +43,3 @@ const Coin: NextPage<CoinProps> = ({ coin }) => {
 };
 
 export default Coin;
-
-export async function getServerSideProps(context: any) {
-  const { id } = context.query;
-  const res = await fetch(`https://api.coingecko.com/api/v3/coins/${id}`);
-  const data = await res.json();
-
-  return {
-    props: {
-      coin: data
-    }
-  };
-}
